@@ -8,7 +8,7 @@ import soundfile as sf
 import matplotlib.pyplot as plt
 from transformers import pipeline
 from sentence_transformers import SentenceTransformer
-
+torch.set_num_threads(1)
 model = whisper.load_model("tiny")
 emotion_classifier = pipeline("text-classification", model="j-hartmann/emotion-english-distilroberta-base", top_k=3)
 summarizer = pipeline("summarization", model="sshleifer/distilbart-cnn-12-6")
